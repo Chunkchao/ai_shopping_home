@@ -1,50 +1,90 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: template-placeholder -> 1.0.0
+- Modified principles:
+  - Principle 1 -> 一、代码质量优先（不可妥协）
+  - Principle 2 -> 二、测试标准强制执行
+  - Principle 3 -> 三、用户体验一致性
+  - Principle 4 -> 四、性能预算与验证
+- Added sections:
+  - 质量门禁与交付约束
+  - 开发流程与评审规范
+- Removed sections:
+  - Principle 5 (template slot)
+- Templates requiring updates:
+  - ✅ updated: .specify/templates/plan-template.md
+  - ✅ updated: .specify/templates/spec-template.md
+  - ✅ updated: .specify/templates/tasks-template.md
+  - ⚠ pending: .specify/templates/commands/*.md (目录不存在，无需动作)
+- Deferred TODOs:
+  - 无
+-->
+# AI Shopping Home Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### 一、代码质量优先（不可妥协）
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+所有合并到主干的代码 MUST 通过静态检查、格式化检查和关键路径可读性审查。
+复杂逻辑 MUST 拆分为可命名、可复用、可单测的最小单元；重复逻辑 MUST 在
+第二次出现前完成抽象。任何临时性实现（如硬编码、旁路逻辑、未处理异常）
+MUST 在同一迭代内消除或记录带截止日期的技术债。该原则用于降低维护成本、
+减少回归并保持长期可演进性。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### 二、测试标准强制执行
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+每个用户故事 MUST 同时具备至少一项自动化验收测试与必要的单元测试，且测试
+在实现前或实现同期提交，不允许“后补测试”。缺陷修复 MUST 先新增可复现失败
+的回归测试，再提交修复代码。CI MUST 阻止未通过测试或覆盖关键变更路径不足
+的变更进入主干。该原则确保需求可验证、缺陷可复现、行为可回归。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### 三、用户体验一致性
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+跨页面与跨流程的术语、交互反馈、状态呈现和错误文案 MUST 保持一致；新增
+界面 MUST 复用既有设计令牌与组件约定（命名、间距、层级、反馈时机）。
+用户关键流程 MUST 提供明确的加载态、空态与错误恢复路径。任何偏离既有体验
+规范的方案 MUST 在评审中给出书面理由并附迁移计划。该原则用于降低学习成本，
+提升可预期性与完成率。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### 四、性能预算与验证
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+每个特性在设计阶段 MUST 定义可度量的性能预算（如接口 p95、首屏时间、内存
+上限或批处理吞吐）。实现完成后 MUST 通过可重复的性能验证（基准、压测或
+监控对比）证明预算达标。若预算未达标，变更不得标记为完成，除非获得明确
+豁免并记录风险与补偿计划。该原则确保系统在规模增长时仍具备可用性与稳定性。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## 质量门禁与交付约束
+
+- 合并门禁 MUST 同时满足：代码质量检查通过、测试通过、体验一致性检查通过、
+  性能预算有证据。
+- 需求文档 MUST 包含可测试验收标准与可观测成功指标，禁止仅描述实现细节。
+- 任务拆分 MUST 保证用户故事可独立实现、独立验证、独立演示。
+- 发布说明 MUST 记录用户可见变化、性能影响与兼容性影响。
+
+## 开发流程与评审规范
+
+- 计划阶段：在计划文档中声明质量策略、测试策略、体验一致性策略与性能预算。
+- 开发阶段：遵循“小步提交 + 持续验证”，每个任务完成时附最小证据（测试结果、
+  截图或性能报告链接）。
+- 评审阶段：评审人 MUST 基于本宪章逐项检查，不允许以“后续补充”替代当前门禁。
+- 验收阶段：未达到任一核心原则的项 MUST 退回开发，不得进入发布候选。
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+本宪章优先于项目内其他实践文档；如与局部约定冲突，以本宪章为准。
+修订流程 MUST 包含：
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+1. 在变更提案中说明修订动机、影响范围与迁移方案。
+2. 至少一名维护者审批，并在相关模板完成同步后方可生效。
+3. 在修订提交中附 Sync Impact Report，确保下游工件一致。
+
+版本策略采用语义化版本：
+
+- MAJOR：删除或重定义核心原则，或引入不兼容治理变更。
+- MINOR：新增原则/章节，或对现有原则做实质性扩展。
+- PATCH：文字澄清、示例修正、非语义改动。
+
+合规审查要求：每个 PR MUST 显式勾选宪章检查项；每个迭代末进行一次抽样合规
+复盘，记录违规项与纠正措施。
+
+**Version**: 1.0.0 | **Ratified**: 2026-03-19 | **Last Amended**: 2026-03-19

@@ -1,0 +1,110 @@
+{
+  "homePageConfig": {
+    "id": "homepage-v1",
+    "version": "1.0.0",
+    "locale": "zh-CN",
+    "sections": [
+      { "key": "hero", "enabled": true, "order": 0, "title": "首屏展示区", "subtitle": "品牌视觉首屏" },
+      { "key": "categories", "enabled": true, "order": 1, "title": "品类浏览区", "subtitle": "核心产品系列" },
+      { "key": "brandStory", "enabled": true, "order": 2, "title": "品牌故事区", "subtitle": "关于绒芸优选" },
+      { "key": "contact", "enabled": true, "order": 3, "title": "联系我们区", "subtitle": "客服与联系方式" }
+    ]
+  },
+  "navigation": [
+    { "id": "nav-women", "label": "女士系列", "targetType": "anchor", "target": "#categories", "priority": 1, "visible": true },
+    { "id": "nav-men", "label": "男士系列", "targetType": "anchor", "target": "#categories", "priority": 2, "visible": true },
+    { "id": "nav-children", "label": "儿童系列", "targetType": "anchor", "target": "#categories", "priority": 3, "visible": true },
+    { "id": "nav-undyed", "label": "无染色", "targetType": "anchor", "target": "#categories", "priority": 4, "visible": true },
+    { "id": "nav-brand", "label": "品牌故事", "targetType": "anchor", "target": "#brand-story", "priority": 5, "visible": true },
+    { "id": "nav-contact", "label": "联系我们", "targetType": "anchor", "target": "#contact", "priority": 6, "visible": true }
+  ],
+  "hero": {
+    "heading": "绒芸优选",
+    "tagline": "精选内蒙古羊绒，温暖每一天",
+    "description": "源自高原的羊绒，经由匠人之手，化为每一件柔软与温暖。绒芸优选坚持品质，为您带来最纯粹的羊绒体验。",
+    "ctaLabel": "探索系列",
+    "ctaTarget": "#categories",
+    "mediaType": "video",
+    "mediaUrl": "/images/hero-video.mp4",
+    "mediaPoster": "/images/hero-bg.jpg",
+    "mediaAlt": "绒芸优选羊绒精品展示"
+  },
+  "categories": [
+    {
+      "id": "cat-women",
+      "name": "女士系列",
+      "summary": "精选柔软羊绒，优雅与温暖兼备，适合各种场合的日常搭配。",
+      "imageUrl": "/images/category-women.jpg",
+      "imageAlt": "女士羊绒系列",
+      "actionLabel": "了解更多",
+      "actionTarget": "#contact",
+      "badge": "热销"
+    },
+    {
+      "id": "cat-men",
+      "name": "男士系列",
+      "summary": "经典剪裁与高级羊绒的完美融合，展现男士品味与质感生活。",
+      "imageUrl": "/images/category-men.jpg",
+      "imageAlt": "男士羊绒系列",
+      "actionLabel": "了解更多",
+      "actionTarget": "#contact"
+    },
+    {
+      "id": "cat-children",
+      "name": "儿童系列",
+      "summary": "特选纯净羊绒，温柔守护每一个孩子的肌肤，安全无刺激。",
+      "imageUrl": "/images/category-children.jpg",
+      "imageAlt": "儿童羊绒系列",
+      "actionLabel": "了解更多",
+      "actionTarget": "#contact",
+      "badge": "新品"
+    },
+    {
+      "id": "cat-undyed",
+      "name": "无染色系列",
+      "summary": "保留羊绒天然色泽，零染料添加，让自然回归本真，更环保。",
+      "imageUrl": "/images/category-undyed.jpg",
+      "imageAlt": "无染色天然羊绒系列",
+      "actionLabel": "了解更多",
+      "actionTarget": "#contact"
+    }
+  ],
+  "brandStory": {
+    "title": "关于绒芸优选",
+    "imageUrl": "/images/brand-story.jpg",
+    "imageAlt": "绒芸优选品牌故事",
+    "paragraphs": [
+      "绒芸优选创立于2010年，专注于内蒙古高原优质羊绒的甄选与纺织加工。我们深入牧场，与当地牧民建立长期合作，确保每一根羊绒原料都来自健康的山羊，品质可追溯。",
+      "十余年来，我们的工匠团队坚持传统手工艺与现代精密纺织技术并用，在保留羊绒天然柔软特性的同时，融入现代设计语言，打造出兼具舒适与美感的羊绒精品。",
+      "我们相信，真正好的羊绒制品不需要过度装饰，只需要忠于材质本身的温度与质感。绒芸优选，温暖每一天。"
+    ],
+    "highlightPhrases": ["品质可追溯", "十余年匠心", "天然羊绒原料"],
+    "detailLink": "#contact"
+  },
+  "contact": {
+    "companyName": "绒芸优选（洪超）纺织有限公司",
+    "copyright": "© 2024 绒芸优选 版权所有",
+    "recordNumber": "蒙ICP备XXXXXXXX号",
+    "phone": "400-800-8888",
+    "serviceHours": "周一至周六 09:00 - 18:00",
+    "email": "service@rongyun.example.com",
+    "socialLinks": [
+      {
+        "type": "wechat",
+        "label": "微信公众号",
+        "url": "#",
+        "qrImageUrl": "/images/qr-wechat.png"
+      },
+      {
+        "type": "xiaohongshu",
+        "label": "小红书",
+        "url": "#"
+      },
+      {
+        "type": "weibo",
+        "label": "微博",
+        "url": "#"
+      }
+    ]
+  }
+}

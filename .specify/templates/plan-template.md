@@ -31,7 +31,15 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **Code Quality Gate**: Define lint/format/static-analysis rules and confirm they are enforceable in CI.
+- **Testing Gate**: Define per-story unit + acceptance/integration test strategy; no story is planned without
+  executable validation.
+- **UX Consistency Gate**: Identify existing design tokens/components/content conventions to reuse; list any
+  intentional deviations with justification.
+- **Performance Gate**: Define measurable budgets (e.g., p95 latency, render time, memory, throughput) and
+  the verification approach (benchmark/load test/monitoring comparison).
+- **Evidence Gate**: Specify what completion evidence is required in implementation tasks (test reports,
+  screenshots, profiling output, or dashboard snapshots).
 
 ## Project Structure
 
